@@ -150,15 +150,16 @@ body {
 /* Character Entry Animations & Refined Spacing 
    Pushed extreme to match the local look and fix on-screen risks.
 */
-.char-luffy  { bottom: 10px; left: 1%; animation: slideUpLeft 3.5s forwards 0.5s; }
-.char-gojo   { top: 5%; right: 1%; animation: slideDownRight 3.5s forwards 1s; }
+/* Character Entry Animations & Refined Spacing */
+.char-luffy  { bottom: 10px; left: 2%; animation: slideUpLeft 3.5s forwards 0.5s; }
+.char-gojo   { top: 5%; right: 2%; animation: slideDownRight 3.5s forwards 1s; }
 
-/* FIX: Naruto's bottom was -50px, which could hide him. Changed to 10px. 
-   Changed right from 15% to 5% to keep him near Gojo but not touching. */
-.char-naruto { bottom: 10px; right: 5%; animation: slideUpRight 3.5s forwards 1.5s; }
+/* Moving Naruto further left (increasing the right offset) */
+.char-naruto { bottom: 10px; right: 20%; animation: slideUpRight 3.5s forwards 1.5s; }
 
-/* Changed Goku's left from 10% to 5% to push him further corner-left. */
-.char-goku   { top: 5%; left: 5%; animation: slideDownLeft 3.5s forwards 2s; }
+/* Moving Goku further right (increasing the left offset) */
+.char-goku   { top: 5%; left: 20%; animation: slideDownLeft 3.5s forwards 2s; }
+
 @keyframes slideUpLeft { 
     0% { transform: translate(-100px, 100px); opacity: 0; } 
     20%, 80% { transform: translate(0, 0); opacity: 1; } 
