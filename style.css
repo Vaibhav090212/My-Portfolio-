@@ -1302,6 +1302,31 @@ section {
         border-left: 1px solid rgba(255,255,255,0.05); 
         gap: 40px;
     }
+
+   /* --- Splash Screen Mobile Fix --- */
+    .splash-text { 
+        font-size: 2.2rem; 
+        text-align: center;
+        z-index: 20; /* Ensures the text stays clickable/readable above the characters */
+    }
+    
+    .anime-char { 
+        width: 130px; /* Shrinks the characters specifically for mobile */
+    }
+    
+    .bubble {
+        font-size: 0.75rem;
+        padding: 5px 10px;
+        margin-bottom: 5px;
+    }
+    
+    /* Overrides the 20% desktop spacing and pushes them to the extreme corners */
+    .char-goku   { top: 2%; left: -2%; }
+    .char-gojo   { top: 2%; right: -2%; }
+    .char-luffy  { bottom: 2%; left: -2%; }
+    .char-naruto { bottom: 2%; right: -2%; }
+
+   
     .nav-links.active { right: 0; }
     
     /* Container Layouts */
