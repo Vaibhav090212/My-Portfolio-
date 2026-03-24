@@ -151,14 +151,14 @@ body {
    Pushed extreme to match the local look and fix on-screen risks.
 */
 /* Character Entry Animations & Refined Spacing */
-.char-luffy  { bottom: 10px; left: 2%; animation: slideUpLeft 3.5s forwards 0.5s; }
+.char-luffy  { bottom: -10px; left: 2%; animation: slideUpLeft 3.5s forwards 0.5s; }
 .char-gojo   { top: 5%; right: 2%; animation: slideDownRight 3.5s forwards 1s; }
 
 /* Moving Naruto further left (increasing the right offset) */
-.char-naruto { bottom: 10px; right: 20%; animation: slideUpRight 3.5s forwards 1.5s; }
+.char-naruto { bottom: -10px; right:18%; animation: slideUpRight 3.5s forwards 1.5s; }
 
 /* Moving Goku further right (increasing the left offset) */
-.char-goku   { top: 5%; left: 15%; animation: slideDownLeft 3.5s forwards 2s; }
+.char-goku   { top: 5%; left: 20%; animation: slideDownLeft 3.5s forwards 2s; }
 
 @keyframes slideUpLeft { 
     0% { transform: translate(-100px, 100px); opacity: 0; } 
