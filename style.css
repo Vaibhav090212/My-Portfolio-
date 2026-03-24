@@ -59,7 +59,7 @@ body {
 
 
 /* ==========================================================================
-   1. CINEMATIC SPLASH SCREEN
+   1. CINEMATIC SPLASH SCREEN (UPDATED)
    ========================================================================== */
 
 #splash-screen {
@@ -97,8 +97,8 @@ body {
 
 .anime-char { 
     position: absolute; 
-    /* UPDATED: Dynamic scaling to prevent overlap on smaller screens */
-    width: clamp(140px, 16vw, 220px); 
+    /* Sticking to your desired 250px local width */
+    width: 250px; 
     opacity: 0; 
     transition: all 0.5s ease; 
     display: flex; 
@@ -112,6 +112,13 @@ body {
     object-fit: contain;
     /* Ensuring no glow or shadow exists so edges blend with black background */
     filter: none; 
+    
+    /* 🛠️ THE PURE CSS FIX: "Screen" Blending Mode. 
+       This works by keeping the lighter pixels (the characters) 
+       and effectively making pure black pixels transparent 
+       relative to the dark background. No image editing required!
+    */
+    mix-blend-mode: screen; 
 }
 
 .bubble { 
@@ -124,6 +131,9 @@ body {
     text-align: center; 
     position: relative; 
     font-size: 0.9rem;
+    
+    /* Ensuring speech bubbles aren't affected by image blending */
+    mix-blend-mode: normal; 
 }
 
 .bubble::after { 
@@ -137,12 +147,18 @@ body {
     border-color: #fff transparent transparent transparent; 
 }
 
-/* Character Entry Animations (Pushed to the extreme corners) */
-.char-luffy  { bottom: -10px; left: 2%; animation: slideUpLeft 3.5s forwards 0.5s; }
-.char-gojo   { top: 2%; right: 2%; animation: slideDownRight 3.5s forwards 1s; }
-.char-naruto { bottom: -10px; right: 2%; animation: slideUpRight 3.5s forwards 1.5s; }
-.char-goku   { top: 2%; left: 2%; animation: slideDownLeft 3.5s forwards 2s; }
+/* Character Entry Animations & Refined Spacing 
+   Pushed extreme to match the local look and fix on-screen risks.
+*/
+.char-luffy  { bottom: 10px; left: 1%; animation: slideUpLeft 3.5s forwards 0.5s; }
+.char-gojo   { top: 5%; right: 1%; animation: slideDownRight 3.5s forwards 1s; }
 
+/* FIX: Naruto's bottom was -50px, which could hide him. Changed to 10px. 
+   Changed right from 15% to 5% to keep him near Gojo but not touching. */
+.char-naruto { bottom: 10px; right: 5%; animation: slideUpRight 3.5s forwards 1.5s; }
+
+/* Changed Goku's left from 10% to 5% to push him further corner-left. */
+.char-goku   { top: 5%; left: 5%; animation: slideDownLeft 3.5s forwards 2s; }
 @keyframes slideUpLeft { 
     0% { transform: translate(-100px, 100px); opacity: 0; } 
     20%, 80% { transform: translate(0, 0); opacity: 1; } 
