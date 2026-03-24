@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaibhav | AI & Full-Stack Developer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <audio id="lofiSound" src="sound\lofi-beats.mp3" preload="auto" loop></audio>
+
+    <div class="liquid-transition" id="liquidTransition"></div>
+    <div class="spotlight" id="spotlight"></div>
+    
+    <div class="cursor-dot" data-cursor></div>
+    <div class="cursor-outline" data-cursor></div>
+
+    <div class="scroll-progress-bar" id="scrollProgress"></div>
+
+    <div id="splash-screen">
+        <h1 class="splash-text">Welcome to my world.</h1>
+        
+        <div class="anime-char char-luffy">
+            <div class="bubble">Shihihi! Welcome!</div>
+            <img src="images/luffy.png" alt="Luffy" onerror="this.style.display='none'">
+        </div>
+        
+        <div class="anime-char char-gojo">
+            <div class="bubble">Domain Expansion: Portfolio</div>
+            <img src="images/gojo.png" alt="Gojo" onerror="this.style.display='none'">
+        </div>
+        
+        <div class="anime-char char-naruto">
+            <div class="bubble">Believe it!</div>
+            <img src="images/naruto.png" alt="Naruto" onerror="this.style.display='none'">
+        </div>
+        
+        <div class="anime-char char-goku">
+            <div class="bubble">Show me your power!</div>
+            <img src="images/goku.png" alt="Goku" onerror="this.style.display='none'">
+        </div>
+    </div>
+
+    <div class="ambient-background">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-brand ui-interact">
+            <img src="images/gemini-svg.svg" alt="Logo" class="nav-logo" onerror="this.style.display='none'">
+            <span>Vaibhav<span class="accent-text">.</span></span>
+        </div>
+        
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about" class="hover-target nav-item ui-interact">About</a></li>
+            <li><a href="#projects" class="hover-target nav-item ui-interact">Projects</a></li>
+            <li><a href="#certifications" class="hover-target nav-item ui-interact">Certificates</a></li>
+            <li><a href="#journey" class="hover-target nav-item ui-interact">Journey</a></li>
+            <li><a href="#brain-dump" class="hover-target nav-item ui-interact">Thoughts</a></li>
+            <li><button id="themeToggle" class="theme-btn hover-target ui-interact" title="Change Theme">🎨</button></li>
+            <li><a href="images\VAIBHAV RESUME.pdf" target="_blank" class="btn btn-outline hover-target ui-interact" download>📄 Download CV</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero" id="home">
+        <div class="hero-content">
+            
+            <div class="hero-text fade-in-left">
+                <div class="live-stats">
+                    <span class="stat" title="Live data from GitHub">
+                        <span class="pulse-dot green"></span> Public Repos: <strong id="gh-repos" class="accent-text">--</strong>
+                    </span>
+                    <span class="stat" title="Live data from GitHub">
+                        <span class="pulse-dot purple"></span> GitHub Followers: <strong id="gh-followers" class="accent-text">--</strong>
+                    </span>
+                </div>
+
+                <h1>Hi, I'm <br><span class="accent-text enlarged-name decrypt-text" data-value="Vaibhav">Vaibhav</span></h1>
+                
+                <h2 class="typewriter-container">
+                    <span id="typewriter" data-type="Building Intelligent Systems., Scalable Web Solutions., AI & Full-Stack Developer."></span><span class="cursor-blink">|</span>
+                </h2>
+                
+                <p>B.Tech Computer Science student building real-world solutions through intelligent systems and modern web technologies.</p>
+                
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary glow-on-hover hover-target nav-item ui-interact">View My Work</a>
+                    <a href="#contact" class="btn btn-outline hover-target nav-item ui-interact">Let's Connect</a>
+                </div>
+            </div>
+            
+            <div class="hero-visual fade-in-right floating hover-target">
+                <div class="profile-frame">
+                    <img src="images/vaibhav1.jpg" alt="Vaibhav Profile Picture" class="profile-pic">
+                </div>
+            </div>
+            
+        </div>
+    </header>
+
+    <div class="tech-marquee-wrapper">
+        <div class="tech-marquee">
+            <span>PYTHON ✦ JAVA ✦ JAVASCRIPT ✦ REACT.JS ✦ HTML5 ✦ CSS3 ✦ OPENCV ✦ GIT ✦ MACHINE LEARNING ✦ DATA STRUCTURES ✦&nbsp;</span>
+            <span>PYTHON ✦ JAVA ✦ JAVASCRIPT ✦ REACT.JS ✦ HTML5 ✦ CSS3 ✦ OPENCV ✦ GIT ✦ MACHINE LEARNING ✦ DATA STRUCTURES ✦&nbsp;</span>
+        </div>
+    </div>
+
+    <section class="about-skills" id="about">
+        <div class="split-layout">
+            
+            <div class="about-content fade-in-up">
+                <h2 class="section-title decrypt-text" data-value="About Me"><span>✦</span> About Me</h2>
+                <p>I am a B.Tech Computer Science student passionate about building impactful technology solutions. My primary focus lies in AI, Machine Learning, and Full-Stack Development.</p>
+                
+                <div class="terminal-container hover-target">
+                    <div class="terminal-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                        <span class="term-title">guest@vaibhav-sys:~</span>
+                    </div>
+                    <div class="terminal-body" id="terminalOutput">
+                        <p>> System initialized. Type <span class="accent-text">'sudo get-motivation'</span></p>
+                    </div>
+                    <div class="terminal-input-line">
+                        <span>></span>
+                        <input type="text" id="terminalInput" autocomplete="off" spellcheck="false">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skills-content fade-in-up" id="physics-skills">
+                <h2 class="section-title decrypt-text" data-value="Technical Arsenal"><span>🛠️</span> Technical Arsenal</h2>
+                
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <div class="tags">
+                        <span class="tag physics-tag hover-target ui-interact">Java</span>
+                        <span class="tag physics-tag hover-target ui-interact">Python</span>
+                        <span class="tag physics-tag hover-target ui-interact">JavaScript</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Web & Tools</h3>
+                    <div class="tags">
+                        <span class="tag physics-tag hover-target ui-interact">HTML5/CSS3</span>
+                        <span class="tag physics-tag hover-target ui-interact">React.js</span>
+                        <span class="tag physics-tag hover-target ui-interact">Git & GitHub</span>
+                        <span class="tag physics-tag hover-target ui-interact">PowerBI & Excel</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Core Concepts</h3>
+                    <div class="tags">
+                        <span class="tag physics-tag hover-target ui-interact">Data Structures</span>
+                        <span class="tag physics-tag hover-target ui-interact">OOP</span>
+                        <span class="tag physics-tag hover-target ui-interact">Machine Learning</span>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <section class="brain-dump" id="brain-dump">
+        <h2 class="section-title fade-in-up decrypt-text" data-value="Recent Thoughts">Recent Thoughts <span>🧠</span></h2>
+        
+        <div class="blog-scroll-container fade-in-up">
+            <div class="blog-card interactive-card hover-target ui-interact">
+                <span class="date">March 2026</span>
+                <h3>Why OpenCV over MediaPipe?</h3>
+                <p>For my virtual mouse project, I chose OpenCV for its lower-level pixel manipulation capabilities. While MediaPipe offers great out-of-the-box hand tracking, I wanted to truly understand the core math behind computer vision.</p>
+            </div>
+            
+            <div class="blog-card interactive-card hover-target ui-interact">
+                <span class="date">February 2026</span>
+                <h3>The Reality of DSA</h3>
+                <p>Data Structures and Algorithms used to feel like just a hurdle for interviews. Now, seeing how they drastically reduce latency in my models, I realize they are the foundation of scalable software.</p>
+            </div>
+            
+            <div class="blog-card interactive-card hover-target ui-interact">
+                <span class="date">January 2026</span>
+                <h3>Prompt Engineering as Code</h3>
+                <p>Completing the Google Cloud Vertex AI badge taught me that prompting isn't just typing words; it's a programmatic way of constraining neural network outputs.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects" id="projects">
+        <h2 class="section-title fade-in-up decrypt-text" data-value="Featured Projects">Featured Projects <span>▹</span></h2>
+        
+        <div class="projects-grid">
+            <div class="project-card fade-in-up interactive-card tilt-card hover-target open-panel ui-interact" 
+                 data-title="AI Personal Study Mentor" 
+                 data-desc="An AI-powered system that analyzes study patterns and provides personalized learning recommendations. I built this to solve the problem of student burnout by leveraging machine learning algorithms to optimize study schedules." 
+                 data-stack="JavaScript, Python, AI/ML" 
+                 data-link="#">
+                <h3>AI Personal Study Mentor</h3>
+                <p class="status">Planned / In Progress</p>
+                <p>An AI-powered system that analyzes study patterns and provides personalized learning recommendations.</p>
+                <div class="tech-stack"><span>JavaScript</span><span>Python</span><span>AI/ML</span></div>
+                <span class="view-more">View Deep Dive ↗</span>
+            </div>
+            
+            <div class="project-card fade-in-up interactive-card tilt-card hover-target open-panel ui-interact" 
+                 data-title="Interactive Portfolio Website" 
+                 data-desc="A highly responsive and animated personal portfolio. Built from scratch with advanced CSS and Vanilla JavaScript, featuring custom cursors, physics-based interactions, and a hidden AI chatbot." 
+                 data-stack="HTML5, CSS3, JavaScript" 
+                 data-link="#">
+                <h3>Interactive Portfolio Website</h3>
+                <p class="status">Completed</p>
+                <p>A responsive and animated personal portfolio showcasing projects, skills, and achievements.</p>
+                <div class="tech-stack"><span>HTML/CSS</span><span>JavaScript</span></div>
+                <span class="view-more">View Deep Dive ↗</span>
+            </div>
+            
+            <div class="project-card fade-in-up interactive-card tilt-card hover-target open-panel ui-interact" 
+                 data-title="Eye-Controlled Virtual Mouse" 
+                 data-desc="A computer vision-based system that allows users to control the cursor using eye movements. Designed to enhance accessibility for individuals with motor disabilities using OpenCV and Python." 
+                 data-stack="Python, OpenCV, Computer Vision" 
+                 data-link="#">
+                <h3>Eye-Controlled Virtual Mouse</h3>
+                <p class="status">Concept Project</p>
+                <p>A computer vision system that allows users to control the cursor using eye movements.</p>
+                <div class="tech-stack"><span>Python</span><span>OpenCV</span><span>Vision</span></div>
+                <span class="view-more">View Deep Dive ↗</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="project-panel-overlay" id="panelOverlay"></div>
+    <aside class="project-side-panel" id="projectPanel">
+        <span class="close-panel hover-target ui-interact" id="closePanel">&times;</span>
+        <h2 id="panelTitle" class="accent-text">Project Name</h2>
+        <h3>The Problem & Architecture</h3>
+        <p id="panelDesc">Description goes here...</p>
+        <h3>Tech Stack Used</h3>
+        <p id="panelStack" class="accent-text"></p>
+        <a href="#" id="panelLink" target="_blank" class="btn btn-primary glow-on-hover mt-4 hover-target ui-interact">View Source Code ↗</a>
+    </aside>
+
+    <section class="certifications" id="certifications">
+        <h2 class="section-title fade-in-up">Certifications & Achievements</h2>
+        
+        <div class="cert-grid">
+            <div class="cert-card fade-in-up interactive-card tilt-card hover-target ui-interact">
+                <div class="cert-img-wrapper"><img src="images/image - Copy.png" alt="Google Cloud Prompt Design"></div>
+                <div class="cert-info"><h3>Prompt Design in Vertex AI</h3><p>Google Cloud Skill Badge</p></div>
+            </div>
+            
+            <div class="cert-card fade-in-up interactive-card tilt-card hover-target ui-interact">
+                <div class="cert-img-wrapper"><img src="images/MY Web Development Certificate.png" alt="Web Development Training"></div>
+                <div class="cert-info"><h3>Web Development Training</h3><p>Internshala Trainings</p></div>
+            </div>
+            
+            <div class="cert-card fade-in-up interactive-card tilt-card hover-target ui-interact">
+                <div class="cert-img-wrapper"><img src="images/OUTSKILL.png" alt="Generative AI Mastermind"></div>
+                <div class="cert-info"><h3>Generative AI Mastermind</h3><p>Outskill</p></div>
+            </div>
+            
+            <div class="cert-card fade-in-up interactive-card tilt-card hover-target ui-interact">
+                <div class="cert-img-wrapper"><img src="images/Python Basic.png" alt="Python Basic"></div>
+                <div class="cert-info"><h3>Python (Basic)</h3><p>HackerRank</p></div>
+            </div>
+            
+            <div class="cert-card fade-in-up interactive-card tilt-card hover-target ui-interact">
+                <div class="cert-img-wrapper"><img src="images/Problem Solving Basic.png" alt="Problem Solving Basic"></div>
+                <div class="cert-info"><h3>Problem Solving (Basic)</h3><p>HackerRank</p></div>
+            </div>
+            
+            <div class="cert-card fade-in-up interactive-card tilt-card hover-target ui-interact">
+                <div class="cert-img-wrapper"><img src="images/CSS Basic.png" alt="CSS Basic"></div>
+                <div class="cert-info"><h3>CSS (Basic)</h3><p>HackerRank</p></div>
+            </div>
+            
+            <div class="cert-card fade-in-up interactive-card tilt-card hover-target ui-interact">
+                <div class="cert-img-wrapper"><img src="images/Advanced Data Analysis Using Excel and PowerBi_page-0001.jpg" alt="Data Analysis Excel PowerBI"></div>
+                <div class="cert-info"><h3>Advance Data Analysis</h3><p>LetsUpgrade</p></div>
+            </div>
+            
+            <div class="cert-card fade-in-up interactive-card tilt-card hover-target ui-interact">
+                <div class="cert-img-wrapper"><img src="images/IMG20250801160137.jpg" alt="Student Ambassador"></div>
+                <div class="cert-info"><h3>LetsUpgrade Ambassador</h3><p>LetsUpgrade & GDG Mumbai</p></div>
+            </div>
+            
+            <div class="cert-card fade-in-up interactive-card tilt-card hover-target ui-interact">
+                <div class="cert-img-wrapper"><img src="images/InternshipCertificate (1).png" alt="Internship Certificate"></div>
+                <div class="cert-info"><h3>Tare Zameen Foundation</h3><p>Internship Certificate</p></div>
+            </div>
+        </div>
+    </section>
+
+    <div id="certModal" class="modal">
+        <span class="close-modal hover-target ui-interact">&times;</span>
+        <img class="modal-content" id="modalImg">
+        <div id="modalCaption"></div>
+    </div>
+
+    <section class="journey" id="journey">
+        <h2 class="section-title fade-in-up"><span>🏆</span> My Learning Journey</h2>
+        <div class="timeline fade-in-up">
+            
+            <div class="timeline-item interactive-card tilt-card hover-target ui-interact">
+                <div class="timeline-dot"></div>
+                <h4>Earning Credentials & Specializations</h4>
+                <p>Validated my skills through HackerRank certifications, Google Cloud badges, and specialized training in AI and Full-Stack Development.</p>
+            </div>
+            
+            <div class="timeline-item interactive-card tilt-card hover-target ui-interact">
+                <div class="timeline-dot"></div>
+                <h4>Mastering Core Fundamentals</h4>
+                <p>Actively learning Data Structures & Algorithms, Object-Oriented Programming, and building real-world projects.</p>
+            </div>
+            
+            <div class="timeline-item interactive-card tilt-card hover-target ui-interact">
+                <div class="timeline-dot"></div>
+                <h4>Started B.Tech in Computer Science</h4>
+                <p>Began my formal education in CS, discovering my passion for intelligent systems and scalable web solutions.</p>
+            </div>
+            
+        </div>
+    </section>
+
+    <section class="guestbook" id="guestbook">
+        <div class="split-layout align-start">
+            
+            <div class="guestbook-info fade-in-up">
+                <h2 class="section-title decrypt-text" data-value="Leave a Mark"><span>✍️</span> Leave a Mark</h2>
+                <p>What do you think of the portfolio? Leave a comment, feedback, or just say hi!</p>
+                <p class="status mt-2" style="color:#2ecc71; font-size:0.9rem;">Note: Connected to Live Cloud Database 🟢</p>
+            </div>
+            
+            <div class="guestbook-form-container fade-in-up interactive-card">
+                <form id="commentForm" class="contact-form">
+                    <input type="text" id="commentName" placeholder="Your Name" required class="hover-target">
+                    <textarea id="commentText" rows="3" placeholder="Your Comment" required class="hover-target"></textarea>
+                    <button type="submit" class="btn btn-primary glow-on-hover hover-target ui-interact">Post Comment</button>
+                </form>
+                
+                <div class="comments-feed" id="commentsFeed">
+                    <div class="comment">
+                        <strong class="accent-text">Recruiter Jane</strong> <span class="comment-date">Just now</span>
+                        <p>Love the new Theme Switcher and the smooth animations! Very clean code.</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="contact-wrapper fade-in-up interactive-card">
+            
+            <div class="contact-info">
+                <h2>Let's build something.</h2>
+                <p>Whether it's a project collaboration, an internship opportunity, or just a chat about AI, my inbox is open.</p>
+                
+                <a href="mailto:vaibhav09122005@gmail.com" class="email-link hover-target ui-interact">vaibhav09122005@gmail.com ↗</a>
+                
+                <div class="social-links">
+                    <a href="https://github.com/Vaibhav090212" target="_blank" class="social-btn hover-target ui-interact">GitHub ↗</a>
+                    <a href="https://www.linkedin.com/in/vaibhav-843b54324/" target="_blank" class="social-btn hover-target ui-interact">LinkedIn ↗</a>
+                </div>
+            </div>
+
+            <form class="contact-form" id="contactForm" method="POST" action="#">
+                <input type="text" name="name" placeholder="Your Name" required class="hover-target">
+                <input type="email" name="_replyto" placeholder="Your Email" required class="hover-target">
+                <textarea name="message" rows="4" placeholder="Your Message" required class="hover-target"></textarea>
+                <button type="submit" class="btn btn-primary glow-on-hover hover-target ui-interact">Send Message</button>
+            </form>
+            
+        </div>
+    </section>
+
+    <button id="muteToggle" class="mute-btn ui-interact" title="Toggle Sound">
+        <span id="muteIcon">🔊</span>
+    </button>
+
+    <div class="chatbot-widget">
+        <button class="chat-toggle glow-on-hover hover-target ui-interact" id="chatToggle">🤖 Ask Vaibot</button>
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <h3>Vaibot 🟢</h3>
+                <span id="closeChat" class="hover-target ui-interact">&times;</span>
+            </div>
+            <div class="chat-body" id="chatBody">
+                <p class="bot-msg">Hi! I'm Vaibot. Ask me about Vaibhav's <strong>skills</strong>, <strong>resume</strong>, or <strong>contact</strong> info!</p>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Type a message..." autocomplete="off">
+                <button id="sendChat" class="hover-target ui-interact">➤</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="marquee-container">
+            <div class="marquee-content">
+                <span>BUILDING INTELLIGENT SYSTEMS ✱ SCALABLE WEB SOLUTIONS ✱ BUILDING INTELLIGENT SYSTEMS ✱ SCALABLE WEB SOLUTIONS ✱&nbsp;</span>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Vaibhav. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
