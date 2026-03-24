@@ -155,10 +155,10 @@ body {
 .char-gojo   { top: 5%; right: 2%; animation: slideDownRight 3.5s forwards 1s; }
 
 /* Moving Naruto further left (increasing the right offset) */
-.char-naruto { bottom: 10px; right: 22%; animation: slideUpRight 3.5s forwards 1.5s; }
+.char-naruto { bottom: 10px; right: 21%; animation: slideUpRight 3.5s forwards 1.5s; }
 
 /* Moving Goku further right (increasing the left offset) */
-.char-goku   { top: 5%; left: 22; animation: slideDownLeft 3.5s forwards 2s; }
+.char-goku   { top: 5%; left: 22%; animation: slideDownLeft 3.5s forwards 2s; }
 
 @keyframes slideUpLeft { 
     0% { transform: translate(-100px, 100px); opacity: 0; } 
