@@ -155,7 +155,7 @@ body {
 .char-naruto { bottom: -10px; right:18%; animation: slideUpRight 3.5s forwards 1.5s; }
 
 /* Moving Goku further right (increasing the left offset) */
-.char-goku   { top: 5%; left: 20%; animation: slideDownLeft 3.5s forwards 2s; }
+.char-goku   { top: 5%; left: 18%; animation: slideDownLeft 3.5s forwards 2s; }
 
 @keyframes slideUpLeft { 
     0% { transform: translate(-100px, 100px); opacity: 0; } 
