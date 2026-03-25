@@ -147,9 +147,6 @@ body {
     border-color: #fff transparent transparent transparent; 
 }
 
-/* Character Entry Animations & Refined Spacing 
-   Pushed extreme to match the local look and fix on-screen risks.
-*/
 /* Character Entry Animations & Refined Spacing */
 .char-luffy  { bottom: -10px; left: 2%; animation: slideUpLeft 3.5s forwards 0.5s; }
 .char-gojo   { top: 5%; right: 2%; animation: slideDownRight 3.5s forwards 1s; }
@@ -160,25 +157,27 @@ body {
 /* Moving Goku further right (increasing the left offset) */
 .char-goku   { top: 5%; left: 20%; animation: slideDownLeft 3.5s forwards 2s; }
 
+/* Kept opacity at 1 so they wait for the Enter Button */
 @keyframes slideUpLeft { 
     0% { transform: translate(-100px, 100px); opacity: 0; } 
-    20%, 80% { transform: translate(0, 0); opacity: 1; } 
-    100% { opacity: 0; } 
+    20%, 100% { transform: translate(0, 0); opacity: 1; } 
 }
 @keyframes slideDownRight { 
     0% { transform: translate(100px, -100px); opacity: 0; } 
-    20%, 80% { transform: translate(0, 0); opacity: 1; } 
-    100% { opacity: 0; } 
+    20%, 100% { transform: translate(0, 0); opacity: 1; } 
 }
 @keyframes slideUpRight { 
     0% { transform: translate(100px, 100px); opacity: 0; } 
-    20%, 80% { transform: translate(0, 0); opacity: 1; } 
-    100% { opacity: 0; } 
+    20%, 100% { transform: translate(0, 0); opacity: 1; } 
 }
 @keyframes slideDownLeft { 
     0% { transform: translate(-100px, -100px); opacity: 0; } 
-    20%, 80% { transform: translate(0, 0); opacity: 1; } 
-    100% { opacity: 0; } 
+    20%, 100% { transform: translate(0, 0); opacity: 1; } 
+}
+
+/* FIX: Fade in animation for the Tap to Enter button */
+@keyframes fadeIn {
+    to { opacity: 1; }
 }
 
 
@@ -1308,6 +1307,13 @@ section {
         font-size: 2.2rem; 
         text-align: center;
         z-index: 20; /* Ensures the text stays clickable/readable above the characters */
+    }
+    
+    /* FIX: Mobile button sizing so it doesn't crush characters */
+    #enterBtn {
+        font-size: 0.9rem !important;
+        padding: 8px 20px !important;
+        bottom: 8% !important;
     }
     
     .anime-char { 
