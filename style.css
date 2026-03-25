@@ -157,7 +157,6 @@ body {
 /* Moving Goku further right (increasing the left offset) */
 .char-goku   { top: 5%; left: 20%; animation: slideDownLeft 3.5s forwards 2s; }
 
-/* Kept opacity at 1 so they wait for the Enter Button */
 @keyframes slideUpLeft { 
     0% { transform: translate(-100px, 100px); opacity: 0; } 
     20%, 100% { transform: translate(0, 0); opacity: 1; } 
@@ -1311,9 +1310,8 @@ section {
     
     /* FIX: Mobile button sizing so it doesn't crush characters */
     #enterBtn {
-        font-size: 0.9rem !important;
-        padding: 8px 20px !important;
-        bottom: 8% !important;
+        font-size: 0.95rem !important;
+        padding: 10px 24px !important;
     }
     
     .anime-char { 
