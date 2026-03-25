@@ -63,16 +63,33 @@ window.addEventListener('scroll', () => {
 // CINEMATIC EFFECTS & UI PHYSICS
 // ==========================================================================
 
-// Initial Cinematic Splash Screen Timer
-window.addEventListener('load', () => {
-    const splashScreen = document.getElementById('splash-screen');
-    if (splashScreen) {
-        // Automatically hide the splash screen after the animations finish
+// Cinematic Splash Screen & Audio Unlock
+const enterBtn = document.getElementById('enterBtn');
+const splashScreen = document.getElementById('splash-screen');
+const bgMusic = document.getElementById('lofiSound');
+
+if (enterBtn && splashScreen) {
+    enterBtn.addEventListener('click', () => {
+        // 1. Hide the splash screen
+        splashScreen.classList.add('hidden');
+        
+        // 2. Force-wake the hero animations (Fixes mobile black screen freeze)
         setTimeout(() => {
-            splashScreen.classList.add('hidden');
-        }, 3800);
-    }
-});
+            document.querySelectorAll('#home .fade-in-left, #home .fade-in-right').forEach(el => {
+                el.classList.add('visible');
+            });
+        }, 100); 
+        
+        // 3. Unlock and play the music immediately
+        if (bgMusic && localStorage.getItem('portfolioMuted') !== 'true') {
+            bgMusic.play().catch((err)=>{ console.log("Audio prevented by browser:", err) });
+            
+            // Ensure the mute icon matches the playing state
+            const muteIcon = document.getElementById('muteIcon');
+            if (muteIcon) muteIcon.innerText = '🔊';
+        }
+    });
+}
 
 // Custom Magic Cursor
 const cursorDot = document.querySelector('.cursor-dot');
@@ -459,7 +476,7 @@ if (contactForm) {
 }
 
 // Live GitHub Stat Fetching
-const githubUsername = 'VaibhavTech'; 
+const githubUsername = 'Vaibhav090212'; // Updated to your real GitHub username!
 
 fetch(`https://api.github.com/users/${githubUsername}`)
     .then(response => response.json())
@@ -577,12 +594,3 @@ if (muteToggle) {
         }
     });
 }
-
-// Global listener to bypass strict browser autoplay restrictions
-document.body.addEventListener('click', function startLofiOnInteract() {
-    if (!isMuted && lofiSound && lofiSound.paused) {
-        lofiSound.play().catch(()=>{});
-    }
-    // Remove the listener immediately after first execution
-    document.body.removeEventListener('click', startLofiOnInteract);
-}, { once: true });
