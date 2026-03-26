@@ -444,7 +444,8 @@ if (contactForm) {
         const formData = new FormData(contactForm);
 
         try {
-            const response = await fetch("https://formspree.io/f/vaibhav-portfolio-93dd2", {
+            // FIX: Formspree URL updated to your actual endpoint
+            const response = await fetch("https://formspree.io/f/xpqoaawa", {
                 method: "POST",
                 body: formData,
                 headers: { 'Accept': 'application/json' }
