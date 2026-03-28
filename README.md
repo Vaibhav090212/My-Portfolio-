@@ -1,7 +1,7 @@
 # 🎭 Cinematic AI-Integrated Portfolio v2.0
 
 ### A high-performance, physics-driven digital experience.
-**Live Demo:** [vaibhav090212.github.io/Vaibhav-Portfolio-v2](https://vaibhav090212.github.io/Vaibhav-Portfolio-v2)
+**Live Demo:** [vaibhav090212.github.io/Vaibhav-Portfolio](https://vaibhav090212.github.io/My-Portfolio-/)
 
 ---
 
