@@ -114,10 +114,16 @@ document.querySelectorAll('.hover-target, a, button').forEach(el => {
     el.addEventListener('mouseleave', () => { document.body.classList.remove('hovering'); });
 });
 
-// Spotlight Background Effect (Tracks mouse coordinates globally)
+// Spotlight Background Effect & Nebula Parallax
 window.addEventListener('mousemove', (e) => {
     document.documentElement.style.setProperty('--x', `${e.clientX}px`);
     document.documentElement.style.setProperty('--y', `${e.clientY}px`);
+    
+    // Smooth, large-divider shift for the background nebula
+    const shiftX = (e.clientX - window.innerWidth / 2) / 80;
+    const shiftY = (e.clientY - window.innerHeight / 2) / 80;
+    document.documentElement.style.setProperty('--shift-x', `${shiftX}`);
+    document.documentElement.style.setProperty('--shift-y', `${shiftY}`);
 });
 
 // Magnetic Buttons
@@ -222,9 +228,9 @@ const decryptObserver = new IntersectionObserver((entries, observer) => {
             const interval = setInterval(() => {
                 el.innerText = originalText.split("").map((letter, index) => {
                     // Reveal the real letter if we've passed its index
-                    if (index < iterations) return originalText[index];
+                    if (index < iterations) return originalText;
                     // Otherwise, pick a random matrix character
-                    return letters[Math.floor(Math.random() * 44)];
+                    return letters;
                 }).join("");
                 
                 if (iterations >= originalText.length) clearInterval(interval);
@@ -244,11 +250,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!typeWriterSpan) return;
     
     const rawData = typeWriterSpan.getAttribute('data-type');
-    const phrases = rawData ? rawData.split(', ') : ["Loading..."];
+    const phrases = rawData ? rawData.split(', ') :;
     let phraseIndex = 0, charIndex = 0, isDeleting = false;
 
     function type() {
-        const currentPhrase = phrases[phraseIndex];
+        const currentPhrase = phrases;
         
         if (isDeleting) {
             typeWriterSpan.textContent = currentPhrase.substring(0, charIndex - 1);
@@ -283,7 +289,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Global Theme Switcher (Dark / Matrix / Light)
 const themeToggleBtn = document.getElementById('themeToggle');
-const themes = ['dark', 'matrix', 'light'];
+const themes =;
 let currentThemeIndex = 0;
 
 // Load persisted theme preference
@@ -296,7 +302,7 @@ if (savedTheme) {
 if (themeToggleBtn) {
     themeToggleBtn.addEventListener('click', () => {
         currentThemeIndex = (currentThemeIndex + 1) % themes.length;
-        const newTheme = themes[currentThemeIndex];
+        const newTheme = themes;
         
         document.documentElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('portfolioTheme', newTheme);
@@ -352,7 +358,7 @@ const closeModalBtn = document.querySelector(".close-modal");
 if (closeModalBtn) closeModalBtn.addEventListener("click", closeModal);
 if (modal) modal.addEventListener("click", function(e) { if (e.target !== modalImg) closeModal(); });
 
-// Terminal CLI Easter Egg
+// Terminal Engine
 const terminalInput = document.getElementById('terminalInput');
 const terminalOutput = document.getElementById('terminalOutput');
 
@@ -366,14 +372,34 @@ if (terminalInput) {
             if (command === 'help') response = "> Commands: 'about', 'clear', 'sudo get-motivation'";
             else if (command === 'about') response = "> Vaibhav: AI Engineer & Full-Stack Developer.";
             else if (command === 'clear') { terminalOutput.innerHTML = ''; this.value = ''; return; }
-            else if (command === 'sudo get-motivation') response = "> \"A King Never Wavers. A King Never Bends. A King Never Relies on Others. A King Never Gives Up.\"";
+            
+            // The upgraded typing animation for the motivation command
+            else if (command === 'sudo get-motivation') {
+                const motivationResponse = "> A King Never Wavers A King Never Bends A King Never Relies on Others A King Never Gives Up";
+                
+                if (terminalOutput) {
+                    const p = document.createElement('p');
+                    p.style.color = 'var(--accent)'; 
+                    terminalOutput.appendChild(p);
+                    
+                    let quoteIndex = 0;
+                    function typeQuote() {
+                        if (quoteIndex < motivationResponse.length) {
+                            p.innerHTML += motivationResponse.charAt(quoteIndex);
+                            quoteIndex++;
+                            setTimeout(typeQuote, (Math.random() * 30 + 30)); 
+                            if (terminalOutput) terminalOutput.scrollTop = terminalOutput.scrollHeight;
+                        }
+                    }
+                    typeQuote();
+                }
+            } 
             else if (command !== '') response = `> Command not found: ${command}`;
 
-            // Print response to terminal
+            // Print response to terminal for non-typing commands
             if (response && terminalOutput) {
                 const p = document.createElement('p');
                 p.innerHTML = response;
-                if (command === 'sudo get-motivation') p.style.color = 'var(--accent)';
                 terminalOutput.appendChild(p);
             }
             
@@ -444,7 +470,6 @@ if (contactForm) {
         const formData = new FormData(contactForm);
 
         try {
-            // FIX: Formspree URL updated to your actual endpoint
             const response = await fetch("https://formspree.io/f/xpqoaawa", {
                 method: "POST",
                 body: formData,
@@ -477,7 +502,7 @@ if (contactForm) {
 }
 
 // Live GitHub Stat Fetching
-const githubUsername = 'Vaibhav090212'; // Updated to your real GitHub username!
+const githubUsername = 'Vaibhav090212'; 
 
 fetch(`https://api.github.com/users/${githubUsername}`)
     .then(response => response.json())
@@ -568,7 +593,7 @@ if (guestbookForm && commentsFeed) {
 
 
 // ==========================================================================
-// BACKGROUND AUDIO MANAGEMENT
+// BACKGROUND AUDIO & STAR GENERATION
 // ==========================================================================
 
 const lofiSound = document.getElementById('lofiSound');
@@ -595,3 +620,19 @@ if (muteToggle) {
         }
     });
 }
+
+// Generate the Floating Stars
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById('space-container');
+  if (container) {
+    for (let i = 0; i < 100; i++) {
+      let star = document.createElement('div');
+      star.className = 'star';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.animationDuration = (Math.random() * 6 + 6) + 's'; 
+      star.style.animationDelay = (Math.random() * 5) + 's';
+      container.appendChild(star);
+    }
+  }
+});
