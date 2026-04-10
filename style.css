@@ -16,7 +16,7 @@
 }
 
 /* Hacker / Matrix Theme Override */
- {
+[data-theme="matrix"] {
     --bg-main: #000500;
     --bg-card: #001100;
     --text-main: #00ff00;
@@ -27,7 +27,7 @@
 }
 
 /* Corporate / Light Theme Override */
- {
+[data-theme="light"] {
     --bg-main: #f4f4f9;
     --bg-card: #ffffff;
     --text-main: #111111;
@@ -43,18 +43,16 @@
     padding: 0; 
     box-sizing: border-box; 
     font-family: 'Segoe UI', system-ui, sans-serif; 
-    cursor: none; /* Hiding default cursor for the custom dot */
+    cursor: none; 
 }
 
 html { 
     scroll-behavior: smooth; 
-    /* The Engine Fix: Solid background must live here */
     background-color: var(--bg-main); 
     transition: background-color 0.5s ease;
 }
 
 body { 
-    /* The Engine Fix: Transparent so the Nebula can shine through */
     background-color: transparent; 
     color: var(--text-main); 
     line-height: 1.6; 
@@ -142,7 +140,6 @@ body::before {
 
 .anime-char { 
     position: absolute; 
-    /* Sticking to your desired 250px local width */
     width: 250px; 
     opacity: 0; 
     transition: all 0.5s ease; 
@@ -155,14 +152,7 @@ body::before {
     width: 100%;
     height: auto;
     object-fit: contain;
-    /* Ensuring no glow or shadow exists so edges blend with black background */
     filter: none; 
-    
-    /* 🛠️ THE PURE CSS FIX: "Screen" Blending Mode. 
-       This works by keeping the lighter pixels (the characters) 
-       and effectively making pure black pixels transparent 
-       relative to the dark background. No image editing required!
-    */
     mix-blend-mode: screen; 
 }
 
@@ -176,8 +166,6 @@ body::before {
     text-align: center; 
     position: relative; 
     font-size: 0.9rem;
-    
-    /* Ensuring speech bubbles aren't affected by image blending */
     mix-blend-mode: normal; 
 }
 
@@ -192,14 +180,9 @@ body::before {
     border-color: #fff transparent transparent transparent; 
 }
 
-/* Character Entry Animations & Refined Spacing */
 .char-luffy  { bottom: -10px; left: 2%; animation: slideUpLeft 3.5s forwards 0.5s; }
 .char-gojo   { top: 5%; right: 2%; animation: slideDownRight 3.5s forwards 1s; }
-
-/* Moving Naruto further left (increasing the right offset) */
 .char-naruto { bottom: -10px; right:18%; animation: slideUpRight 3.5s forwards 1.5s; }
-
-/* Moving Goku further right (increasing the left offset) */
 .char-goku   { top: 5%; left: 18%; animation: slideDownLeft 3.5s forwards 2s; }
 
 @keyframes slideUpLeft { 
@@ -219,7 +202,6 @@ body::before {
     20%, 100% { transform: translate(0, 0); opacity: 1; } 
 }
 
-/* FIX: Fade in animation for the Tap to Enter button */
 @keyframes fadeIn {
     to { opacity: 1; }
 }
@@ -229,7 +211,6 @@ body::before {
    2. GLOBAL UTILITIES & EFFECTS
    ========================================================================== */
 
-/* --- Custom Magic Cursor --- */
 .cursor-dot { 
     width: 8px; 
     height: 8px; 
@@ -261,7 +242,6 @@ body::before {
     transition-timing-function: ease-out; 
 }
 
-/* Hover states for the cursor */
 body.hovering .cursor-dot { 
     width: 50px; 
     height: 50px; 
@@ -273,7 +253,6 @@ body.hovering .cursor-outline {
     opacity: 0; 
 }
 
-/* --- Scroll Progress Bar --- */
 .scroll-progress-bar { 
     position: fixed; 
     top: 0; 
@@ -286,7 +265,6 @@ body.hovering .cursor-outline {
     transition: width 0.1s ease;
 }
 
-/* --- Floating Ambient Background Orbs --- */
 .ambient-background { 
     position: fixed; 
     top: 0; 
@@ -296,7 +274,7 @@ body.hovering .cursor-outline {
     z-index: -1; 
     overflow: hidden; 
     pointer-events: none; 
-    background: transparent; /* FIXED: Unblocks Nebula */
+    background: transparent; 
 }
 
 .orb { 
@@ -316,7 +294,6 @@ body.hovering .cursor-outline {
     100% { transform: translate(50px, 50px) scale(1.2); } 
 }
 
-/* --- Liquid Page Transition & Spotlight --- */
 .liquid-transition { 
     position: fixed; 
     top: 100%; 
@@ -349,7 +326,6 @@ body.hovering .cursor-outline {
    3. STRUCTURAL COMPONENTS & ANIMATIONS
    ========================================================================== */
 
-/* --- Scroll Entrance Animations --- */
 .fade-in-up, .fade-in-left, .fade-in-right { 
     opacity: 0; 
     transition: opacity 1s var(--anim-curve), transform 1s var(--anim-curve); 
@@ -367,7 +343,6 @@ body.hovering .cursor-outline {
     transform: none; 
 }
 
-/* --- Layout & Typography Settings --- */
 h1, h2, h3, h4 { 
     color: var(--text-main); 
     font-weight: 700; 
@@ -398,7 +373,6 @@ section {
     z-index: 1;
 }
 
-/* --- Buttons --- */
 .btn { 
     display: inline-block; 
     padding: 14px 36px; 
@@ -433,13 +407,11 @@ section {
     transform: translateY(-3px); 
 }
 
-/* Hardware acceleration for the JS 3D tilt effect */
 .tilt-card { 
     transform-style: preserve-3d; 
     will-change: transform; 
 }
 
-/* --- Universal Interactive Cards --- */
 .interactive-card { 
     background: var(--bg-card); 
     backdrop-filter: blur(10px); 
@@ -542,7 +514,6 @@ section {
     width: 100%; 
 }
 
-/* GitHub Live Stats Badge (LEFT UNTOUCHED FROM LIVE CODE) */
 .live-stats { 
     display: flex; 
     gap: 15px; 
@@ -573,7 +544,6 @@ section {
     100% { opacity: 1; } 
 }
 
-/* Hero Typography */
 .hero h1 { 
     font-size: 4rem; 
     letter-spacing: -2px; 
@@ -590,7 +560,6 @@ section {
     -webkit-text-fill-color: transparent; 
 }
 
-/* --- CYBER GLITCH TEXT --- */
 .glitch-text { position: relative; display: inline-block; }
 .glitch-text::before, .glitch-text::after { content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: transparent; pointer-events: none; }
 .glitch-text::before { left: 2px; text-shadow: -2px 0 #ff00c1; clip: rect(44px, 450px, 56px, 0); animation: glitch-anim 5s infinite linear alternate-reverse; }
@@ -628,7 +597,6 @@ section {
     gap: 20px; 
 }
 
-/* Profile Frame Magic */
 .hero-visual { 
     display: flex; 
     justify-content: center; 
@@ -719,7 +687,6 @@ section {
     margin-bottom: 20px; 
 }
 
-/* Simulated CLI Widget */
 .terminal-container { 
     margin-top: 40px; 
     background: #0c0c0c; 
@@ -793,7 +760,6 @@ section {
     width: 100%;
 }
 
-/* Skills Layout & Repelling Tags */
 .skills-content .skill-category { margin-bottom: 30px; }
 .skills-content h3 { font-size: 1.1rem; margin-bottom: 15px; color: var(--text-main); }
 .tags { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -857,9 +823,9 @@ section {
 .project-card { 
     padding: 40px 30px; 
     cursor: pointer;
+    position: relative;
 }
 
-/* Z-axis transforms for the 3D hover tilt effect */
 .project-card h3 { font-size: 1.5rem; margin-bottom: 10px; transform: translateZ(30px); }
 .status { color: var(--accent); font-size: 0.8rem; font-weight: 800; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; transform: translateZ(20px);}
 .project-card p { color: var(--text-muted); margin-bottom: 25px; font-size: 1rem; transform: translateZ(15px);}
@@ -871,6 +837,8 @@ section {
     font-size: 0.8rem; 
     color: #fff; 
     background: rgba(255,255,255,0.08); 
+    position: relative;
+    z-index: 2;
 }
 
 .view-more { 
@@ -882,19 +850,16 @@ section {
     transform: translateZ(25px);
 }
 
-/* --- DATA PACKET SCROLL EFFECT --- */
 .project-card:hover .tech-stack { position: relative; overflow: hidden; }
 .project-card:hover .tech-stack::after {
     content: attr(data-telemetry); 
     position: absolute; top: 0; left: 0; width: 100%; height: 200%;
     color: var(--accent); opacity: 0.15; font-family: 'Courier New', monospace;
     text-transform: uppercase; letter-spacing: 2px; font-size: 0.75rem; line-height: 1;
-    animation: dataPacketScroll 6s linear infinite; pointer-events: none;
+    animation: dataPacketScroll 6s linear infinite; pointer-events: none; z-index: 1;
 }
 @keyframes dataPacketScroll { 0% { top: 0; } 100% { top: -100%; } }
 
-
-/* Hidden Slide-out Panel Overlay */
 .project-panel-overlay { 
     position: fixed; 
     top: 0; 
@@ -989,7 +954,6 @@ section {
 .cert-info h3 { font-size: 1.15rem; margin-bottom: 5px; }
 .cert-info p { color: var(--text-muted); font-size: 0.95rem; }
 
-/* Fullscreen Image Modal */
 .modal { 
     visibility: hidden; 
     opacity: 0; 
@@ -1198,7 +1162,6 @@ section {
    14. WIDGETS & FOOTER
    ========================================================================== */
 
-/* --- Chatbot Widget --- */
 .chatbot-widget { position: fixed; bottom: 30px; right: 30px; z-index: 1000; }
 
 .chat-toggle { 
@@ -1275,7 +1238,6 @@ section {
 .chat-input input { flex: 1; background: transparent; border: none; color: var(--text-main); padding: 5px 10px; outline: none; }
 .chat-input button { background: transparent; border: none; color: var(--accent); font-size: 1.2rem; padding: 0 10px; cursor: pointer; }
 
-/* --- Global Audio Mute Button --- */
 .mute-btn {
     position: fixed;
     bottom: 30px;
@@ -1300,7 +1262,6 @@ section {
     box-shadow: 0 5px 20px var(--accent-glow);
 }
 
-/* --- Footer Marquee --- */
 .footer { 
     background: var(--accent); 
     overflow: hidden; 
@@ -1315,7 +1276,7 @@ section {
 
 .marquee-content { 
     display: flex; 
-    width: 200%; /* Forces container to be twice the screen width */
+    width: 200%; 
     animation: scroll-left 25s linear infinite; 
 }
 
@@ -1334,21 +1295,13 @@ section {
    15. RESPONSIVE DESIGN & MOBILE OPTIMIZATION
    ========================================================================== */
 
-/* Hidden Mobile Menu Hamburger */
-.hamburger { 
-    display: none; 
-    flex-direction: column; 
-    gap: 5px; 
-    cursor: pointer; 
-    z-index: 1005; 
-}
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1005; }
 .hamburger span { width: 25px; height: 3px; background: var(--text-main); transition: 0.3s; border-radius: 2px;}
 .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
 .hamburger.active span:nth-child(2) { opacity: 0; }
 .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
 
 @media (max-width: 900px) {
-    /* Navbar & Mobile Overlay */
     .hamburger { display: flex; }
     .nav-links { 
         position: fixed; 
@@ -1366,21 +1319,19 @@ section {
         gap: 40px;
     }
 
-   /* --- Splash Screen Mobile Fix --- */
     .splash-text { 
         font-size: 2.2rem; 
         text-align: center;
-        z-index: 20; /* Ensures the text stays clickable/readable above the characters */
+        z-index: 20; 
     }
     
-    /* FIX: Mobile button sizing so it doesn't crush characters */
     #enterBtn {
         font-size: 0.95rem !important;
         padding: 10px 24px !important;
     }
     
     .anime-char { 
-        width: 130px; /* Shrinks the characters specifically for mobile */
+        width: 130px; 
     }
     
     .bubble {
@@ -1389,7 +1340,6 @@ section {
         margin-bottom: 5px;
     }
     
-    /* Overrides the 20% desktop spacing and pushes them to the extreme corners */
     .char-goku   { top: 2%; left: -2%; }
     .char-gojo   { top: 2%; right: -2%; }
     .char-luffy  { bottom: 2%; left: -2%; }
@@ -1398,11 +1348,9 @@ section {
    
     .nav-links.active { right: 0; }
     
-    /* Container Layouts */
     section { padding: 60px 5%; }
     .hero-content, .split-layout, .contact-wrapper { grid-template-columns: 1fr; text-align: center; }
     
-    /* Hero Adjustments */
     .hero { padding-top: 120px; }
     .hero-visual { display: flex; margin-top: 40px; } 
     .hero-buttons { justify-content: center; flex-direction: column; width: 100%; gap: 15px;}
@@ -1412,31 +1360,24 @@ section {
     .typewriter-container { font-size: 1.3rem; height: auto; min-height: 60px; }
     .profile-frame { width: 260px; height: 260px; } 
     
-    /* Live Stats */
     .live-stats { flex-direction: column; align-items: center; margin: 0 auto 20px auto; gap: 8px;}
     
-    /* Panels & Modals */
     .cert-img-wrapper { height: 180px; }
     .project-side-panel { width: 100%; padding: 40px 20px; }
     
-    /* Timeline Mobile Fixes */
     .timeline { padding-left: 20px; }
     .timeline-dot { left: -29px; }
     
-    /* Contact Adjustments */
     .contact-wrapper { padding: 30px; gap: 30px; }
     .social-links { justify-content: center; }
     .email-link { font-size: 1.1rem; }
     
-    /* Hide Magic Cursor on Touch Devices */
     .cursor-dot, .cursor-outline { display: none !important; }
     * { cursor: auto !important; }
     
-    /* Text Scaling */
     .tech-marquee span { font-size: 1rem; }
     .marquee-content span { font-size: 2rem; }
     
-    /* Scaling widgets down */
     .mute-btn { bottom: 20px; left: 20px; width: 40px; height: 40px; font-size: 1.2rem; }
 }
 
@@ -1450,6 +1391,5 @@ section {
    16. LIGHT THEME CLARITY OVERRIDES
    ========================================================================== */
 
-/* Dark Obsidian Glitch for Light Theme */
- .glitch-text::before { text-shadow: -2px 0 var(--bg-card); color: var(--text-main); }
- .glitch-text::after { text-shadow: 2px 0 #2ecc71; color: var(--accent); }
+[data-theme="light"] .glitch-text::before { text-shadow: -2px 0 var(--bg-card); color: var(--text-main); }
+[data-theme="light"] .glitch-text::after { text-shadow: 2px 0 #2ecc71; color: var(--accent); }
