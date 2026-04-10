@@ -8,6 +8,8 @@
 </head>
 <body>
 
+    <div id="space-container"></div>
+
     <audio id="lofiSound" src="sound\lofi-beats.mp3" preload="auto" loop></audio>
 
     <div class="liquid-transition" id="liquidTransition"></div>
@@ -87,7 +89,7 @@
                     </span>
                 </div>
 
-                <h1>Hi, I'm <br><span class="accent-text enlarged-name decrypt-text" data-value="Vaibhav">Vaibhav</span></h1>
+                <h1>Hi, I'm <br><span class="accent-text enlarged-name decrypt-text glitch-text" data-value="Vaibhav" data-text="Vaibhav">Vaibhav</span></h1>
                 
                 <h2 class="typewriter-container">
                     <span id="typewriter" data-type="Building Intelligent Systems., Scalable Web Solutions., AI & Full-Stack Developer."></span><span class="cursor-blink">|</span>
@@ -212,7 +214,11 @@
                 <h3>AI Personal Study Mentor</h3>
                 <p class="status">Planned / In Progress</p>
                 <p>An AI-powered system that analyzes study patterns and provides personalized learning recommendations.</p>
-                <div class="tech-stack"><span>JavaScript</span><span>Python</span><span>AI/ML</span></div>
+                
+                <div class="tech-stack" data-telemetry="JavaScript Python AI/ML Optimization Algorithms ">
+                    <span>JavaScript</span><span>Python</span><span>AI/ML</span>
+                </div>
+                
                 <span class="view-more">View Deep Dive ↗</span>
             </div>
             
@@ -224,12 +230,14 @@
                 <h3>Interactive Portfolio Website</h3>
                 <p class="status">Completed</p>
                 <p>A responsive and animated personal portfolio showcasing projects, skills, and live serverless interactions.</p>
-                <div class="tech-stack">
+                
+                <div class="tech-stack" data-telemetry="HTML5 CSS3 JavaScript DOM APIs Frontend Architecture ">
                     <span>Vanilla JS</span>
                     <span>HTML/CSS</span>
                     <span>Firebase</span>
                     <span>Formspree</span>
                 </div>
+                
                 <span class="view-more">View Deep Dive ↗</span>
             </div>
             
@@ -241,9 +249,14 @@
                 <h3>Eye-Controlled Virtual Mouse</h3>
                 <p class="status">Concept Project</p>
                 <p>A computer vision system that allows users to control the cursor using eye movements.</p>
-                <div class="tech-stack"><span>Python</span><span>OpenCV</span><span>Vision</span></div>
+                
+                <div class="tech-stack" data-telemetry="Python OpenCV Computer Vision MediaPipe Tracking ">
+                    <span>Python</span><span>OpenCV</span><span>Vision</span>
+                </div>
+                
                 <span class="view-more">View Deep Dive ↗</span>
             </div>
+            
             <div class="project-card fade-in-up interactive-card tilt-card hover-target open-panel ui-interact" 
                  data-title="Full-Stack Mini CRM" 
                  data-desc="A comprehensive Customer Relationship Management system designed to streamline sales pipelines and client interactions. Engineered with a React frontend, a Python/Flask core backend, and Firebase for real-time data syncing, utilizing Node.js for scalable API routing." 
@@ -252,12 +265,14 @@
                 <h3>Full-Stack Mini CRM</h3>
                 <p class="status">Completed</p>
                 <p>A comprehensive CRM system to track leads, manage customer interactions, and visualize sales data in real-time.</p>
-                <div class="tech-stack">
+                
+                <div class="tech-stack" data-telemetry="React Node.js Python Flask Firebase Data Visualization ">
                     <span>React</span>
                     <span>Python/Flask</span>
                     <span>Node.js</span>
                     <span>Firebase</span>
                 </div>
+                
                 <span class="view-more">View Deep Dive ↗</span>
             </div>
         </div>
