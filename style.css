@@ -12,26 +12,29 @@
     --accent-glow: rgba(157, 78, 221, 0.5);
     --radius: 16px;
     --anim-curve: cubic-bezier(0.165, 0.84, 0.44, 1);
+    --star-color: 255, 255, 255; 
 }
 
 /* Hacker / Matrix Theme Override */
-[data-theme="matrix"] {
+ {
     --bg-main: #000500;
     --bg-card: #001100;
     --text-main: #00ff00;
     --text-muted: #008800;
     --accent: #00ff00; 
     --accent-glow: rgba(0, 255, 0, 0.5);
+    --star-color: 0, 255, 0; 
 }
 
 /* Corporate / Light Theme Override */
-[data-theme="light"] {
+ {
     --bg-main: #f4f4f9;
     --bg-card: #ffffff;
     --text-main: #111111;
     --text-muted: #555555;
     --accent: #2563eb; 
     --accent-glow: rgba(37, 99, 235, 0.3);
+    --star-color: 37, 99, 235; 
 }
 
 /* --- Base Resets & Typography --- */
@@ -45,16 +48,58 @@
 
 html { 
     scroll-behavior: smooth; 
+    /* The Engine Fix: Solid background must live here */
+    background-color: var(--bg-main); 
+    transition: background-color 0.5s ease;
 }
 
 body { 
-    background-color: var(--bg-main); 
+    /* The Engine Fix: Transparent so the Nebula can shine through */
+    background-color: transparent; 
     color: var(--text-main); 
     line-height: 1.6; 
     overflow-x: hidden; 
     position: relative; 
-    /* Smoothly transition when the user toggles themes */
-    transition: background-color 0.5s ease, color 0.5s ease; 
+    transition: color 0.5s ease; 
+}
+
+/* --- DEEP SPACE NEBULA WITH PARALLAX --- */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: -2; 
+    pointer-events: none;
+    background: 
+        radial-gradient(circle at 15% 50%, rgba(76, 29, 149, 0.15), transparent 50%),
+        radial-gradient(circle at 85% 30%, rgba(14, 165, 233, 0.1), transparent 50%),
+        radial-gradient(circle at 50% 80%, rgba(139, 92, 246, 0.1), transparent 50%);
+    transform: translate(calc(var(--shift-x, 0) * 1px), calc(var(--shift-y, 0) * 1px)) scale(1.1);
+    transition: transform 0.15s ease-out;
+    animation: nebula-breathe 20s infinite alternate ease-in-out;
+}
+
+@keyframes nebula-breathe {
+    0% { opacity: 0.8; }
+    100% { opacity: 1; }
+}
+
+/* --- FLOATING STARS --- */
+#space-container { 
+    position: fixed; 
+    top: 0; left: 0; width: 100vw; height: 100vh; 
+    perspective: 1000px; z-index: -1; pointer-events: none; 
+}
+.star { 
+    position: absolute; width: 2px; height: 2px; 
+    background: rgb(var(--star-color)); border-radius: 50%;
+    box-shadow: 0 0 4px 1px rgba(var(--star-color), 0.3); 
+    opacity: 0; animation: gentle-warp linear infinite; 
+}
+@keyframes gentle-warp { 
+    0% { transform: translateZ(-2000px); opacity: 0; } 
+    50% { opacity: 0.5; } 
+    100% { transform: translateZ(500px); opacity: 0; } 
 }
 
 
@@ -251,7 +296,7 @@ body.hovering .cursor-outline {
     z-index: -1; 
     overflow: hidden; 
     pointer-events: none; 
-    background: radial-gradient(circle at center, var(--bg-card) 0%, var(--bg-main) 100%); 
+    background: transparent; /* FIXED: Unblocks Nebula */
 }
 
 .orb { 
@@ -497,7 +542,7 @@ section {
     width: 100%; 
 }
 
-/* GitHub Live Stats Badge */
+/* GitHub Live Stats Badge (LEFT UNTOUCHED FROM LIVE CODE) */
 .live-stats { 
     display: flex; 
     gap: 15px; 
@@ -544,6 +589,14 @@ section {
     -webkit-background-clip: text; 
     -webkit-text-fill-color: transparent; 
 }
+
+/* --- CYBER GLITCH TEXT --- */
+.glitch-text { position: relative; display: inline-block; }
+.glitch-text::before, .glitch-text::after { content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: transparent; pointer-events: none; }
+.glitch-text::before { left: 2px; text-shadow: -2px 0 #ff00c1; clip: rect(44px, 450px, 56px, 0); animation: glitch-anim 5s infinite linear alternate-reverse; }
+.glitch-text::after { left: -2px; text-shadow: -2px 0 #00fff9; clip: rect(44px, 450px, 56px, 0); animation: glitch-anim2 5s infinite linear alternate-reverse; }
+@keyframes glitch-anim { 0% { clip: rect(10px, 9999px, 83px, 0); } 20% { clip: rect(62px, 9999px, 14px, 0); } 40% { clip: rect(34px, 9999px, 53px, 0); } 60% { clip: rect(81px, 9999px, 2px, 0); } 80% { clip: rect(43px, 9999px, 73px, 0); } 100% { clip: rect(11px, 9999px, 98px, 0); } }
+@keyframes glitch-anim2 { 0% { clip: rect(65px, 9999px, 100px, 0); } 20% { clip: rect(12px, 9999px, 53px, 0); } 40% { clip: rect(84px, 9999px, 11px, 0); } 60% { clip: rect(3px, 9999px, 76px, 0); } 80% { clip: rect(48px, 9999px, 23px, 0); } 100% { clip: rect(93px, 9999px, 41px, 0); } }
 
 .typewriter-container { 
     font-size: 2rem; 
@@ -828,6 +881,18 @@ section {
     font-size: 0.9rem; 
     transform: translateZ(25px);
 }
+
+/* --- DATA PACKET SCROLL EFFECT --- */
+.project-card:hover .tech-stack { position: relative; overflow: hidden; }
+.project-card:hover .tech-stack::after {
+    content: attr(data-telemetry); 
+    position: absolute; top: 0; left: 0; width: 100%; height: 200%;
+    color: var(--accent); opacity: 0.15; font-family: 'Courier New', monospace;
+    text-transform: uppercase; letter-spacing: 2px; font-size: 0.75rem; line-height: 1;
+    animation: dataPacketScroll 6s linear infinite; pointer-events: none;
+}
+@keyframes dataPacketScroll { 0% { top: 0; } 100% { top: -100%; } }
+
 
 /* Hidden Slide-out Panel Overlay */
 .project-panel-overlay { 
@@ -1380,3 +1445,11 @@ section {
     .section-title { font-size: 1.8rem; }
     .btn { padding: 12px 20px; font-size: 0.95rem; }
 }
+
+/* ==========================================================================
+   16. LIGHT THEME CLARITY OVERRIDES
+   ========================================================================== */
+
+/* Dark Obsidian Glitch for Light Theme */
+ .glitch-text::before { text-shadow: -2px 0 var(--bg-card); color: var(--text-main); }
+ .glitch-text::after { text-shadow: 2px 0 #2ecc71; color: var(--accent); }
