@@ -320,44 +320,82 @@ const closeModalBtn = document.querySelector(".close-modal");
 if (closeModalBtn) closeModalBtn.addEventListener("click", closeModal);
 if (modal) modal.addEventListener("click", function(e) { if (e.target !== modalImg) closeModal(); });
 
+// ==========================================================================
+// TERMINAL CLI EASTER EGG (UPGRADED)
+// ==========================================================================
 const terminalInput = document.getElementById('terminalInput');
 const terminalOutput = document.getElementById('terminalOutput');
+
+// Automatically show a welcome message on load
+document.addEventListener('DOMContentLoaded', () => {
+    const terminalOutput = document.getElementById('terminalOutput');
+    // Only inject if the body is truly empty
+    if (terminalOutput && terminalOutput.children.length === 0) {
+        const welcome = document.createElement('p');
+        welcome.innerHTML = "> System initialized. Type 'help' to see available commands.";
+        terminalOutput.appendChild(welcome);
+    }
+});
+const motivations = [
+    "A King Never Wavers. A King Never Bends. A King Never Relies on Others. A King Never Gives Up.",
+    "Power comes in response to a need, not a desire. You have to create that need. - Goku",
+    "If you don't take risks, you can't create a future. - Monkey D. Luffy",
+    "Throughout Heaven and Earth, I alone am the honored one. - Gojo Satoru",
+    "Hard work is worthless for those that don’t believe in themselves. - Naruto Uzumaki",
+    "First, solve the problem. Then, write the code.",
+    "A smooth sea never made a skilled sailor. Keep pushing.",
+    "The only limit to our realization of tomorrow will be our doubts of today.",
+    "Code is like humor. When you have to explain it, it’s bad.",
+    "Wake up to reality! Nothing ever goes as planned in this accursed world. - Madara"
+];
 
 if (terminalInput) {
     terminalInput.addEventListener('keypress', function(e) {
         if (e.key === 'Enter') {
             const command = this.value.trim().toLowerCase();
             let response = '';
-            
-            if (command === 'help') response = "> Commands: 'about', 'clear', 'sudo get-motivation'";
-            else if (command === 'about') response = "> Vaibhav: AI Engineer & Full-Stack Developer.";
-            else if (command === 'clear') { terminalOutput.innerHTML = ''; this.value = ''; return; }
-            
-            else if (command === 'sudo get-motivation') {
-                const motivationResponse = "> A King Never Wavers A King Never Bends A King Never Relies on Others A King Never Gives Up";
-                
-                if (terminalOutput) {
-                    const p = document.createElement('p');
-                    p.style.color = 'var(--accent)'; 
-                    terminalOutput.appendChild(p);
-                    
-                    let quoteIndex = 0;
-                    function typeQuote() {
-                        if (quoteIndex < motivationResponse.length) {
-                            p.innerHTML += motivationResponse.charAt(quoteIndex);
-                            quoteIndex++;
-                            setTimeout(typeQuote, (Math.random() * 30 + 30)); 
-                            if (terminalOutput) terminalOutput.scrollTop = terminalOutput.scrollHeight;
-                        }
-                    }
-                    typeQuote();
-                }
-            } 
-            else if (command !== '') response = `> Command not found: ${command}`;
+            let isHackerCommand = false;
 
+            // CLI Logic
+            if (command === 'help') {
+                response = "> Commands: 'about', 'clear', 'sudo get-motivation', 'sudo hack-nasa'";
+            } 
+            else if (command === 'about') {
+                response = "> Vaibhav: AI Engineer & Full-Stack Developer.";
+            } 
+            else if (command === 'clear') { 
+                terminalOutput.innerHTML = ''; 
+                this.value = ''; 
+                return; 
+            } 
+            else if (command === 'sudo get-motivation') {
+                const randomQuote = motivations[Math.floor(Math.random() * motivations.length)];
+                response = `> "${randomQuote}"`;
+            } 
+            else if (command === 'sudo hack-nasa') {
+                isHackerCommand = true;
+                terminalOutput.innerHTML += `<p style="color: #e74c3c;">> Accessing secure mainframe...</p>`;
+                setTimeout(() => {
+                    terminalOutput.innerHTML += `<p style="color: #e74c3c;">> ERROR: Firewalls detected. System lockdown initiated.</p>`;
+                    terminalOutput.scrollTop = terminalOutput.scrollHeight;
+                }, 1000);
+                response = "> Access Denied. Nice try, though!";
+            }
+            else if (command !== '') {
+                response = `> Command not found: ${command}`;
+            }
+
+            // Print response
             if (response && terminalOutput) {
                 const p = document.createElement('p');
                 p.innerHTML = response;
+                
+                // Styling logic
+                if (command === 'sudo get-motivation') {
+                    p.style.color = 'var(--accent)';
+                    p.style.fontWeight = 'bold';
+                }
+                
                 terminalOutput.appendChild(p);
             }
             
@@ -366,16 +404,48 @@ if (terminalInput) {
         }
     });
 }
-
+// ==========================================================================
+// "VAIBOT" ADVANCED CHATBOT SIMULATION 2.0
+// ==========================================================================
 const chatWindow = document.getElementById('chatWindow');
 const chatInput = document.getElementById('chatInput');
 const chatBody = document.getElementById('chatBody');
 const chatToggle = document.getElementById('chatToggle');
 const closeChat = document.getElementById('closeChat');
 const sendChatBtn = document.getElementById('sendChat');
+const quickBtns = document.querySelectorAll('.quick-btn');
 
+// Toggle Chat Window
 if (chatToggle) chatToggle.addEventListener('click', () => chatWindow.classList.toggle('active'));
 if (closeChat) closeChat.addEventListener('click', () => chatWindow.classList.remove('active'));
+
+// Vaibot's Upgraded Brain (Intent Matching)
+const botBrain = [
+    { keywords: ["hi", "hello", "hey", "sup", "yo", "morning"], response: "Hey there! 👋 I'm Vaibot. What would you like to know about Vaibhav?" },
+    { keywords: ["skill", "tech", "stack", "language", "framework", "code", "programming"], response: "Vaibhav is a Full-Stack & AI Engineer. His core arsenal includes <strong>Python, Java, JavaScript, React, Node.js, Flask, and Firebase</strong>." },
+    { keywords: ["project", "work", "portfolio", "build", "crm", "mouse"], response: "He's built some cool stuff! Highlights include a <strong>Full-Stack Mini CRM</strong>, an <strong>Eye-Controlled Virtual Mouse</strong>, and an <strong>AI Study Mentor</strong>. Check out the Projects section!" },
+    { keywords: ["contact", "email", "hire", "reach", "message", "linkedin"], response: "You can email him directly at <a href='mailto:vaibhav09122005@gmail.com' class='accent-text'>vaibhav09122005@gmail.com</a> or connect on LinkedIn!" },
+    { keywords: ["resume", "cv", "download", "pdf"], response: "You can download his official CV using the 'Download CV' button in the top navigation bar! 📄" },
+    { keywords: ["education", "college", "degree", "btech", "university"], response: "Vaibhav is currently pursuing his B.Tech in Computer Science, focusing on intelligent systems and scalable web solutions." },
+    { keywords: ["anime", "goku", "gojo", "luffy", "naruto", "weeb", "otaku"], response: "Domain Expansion: Infinite Portfolio! 🤞 Yes, Vaibhav is a massive anime fan." },
+    { keywords: ["gssoc", "open source", "contribute", "girlscript"], response: "He's a GSSoC '26 Ambassador and Rising Star (1,000+ points)! Open source is his jam. 🌟" }
+];
+
+// Determine the best response
+function getBotResponse(text) {
+    text = text.toLowerCase();
+    
+    // Easter Egg check
+    if (text === "sudo get-motivation") return "A King Never Wavers. A King Never Bends. A King Never Relies on Others. A King Never Gives Up. 👑";
+    
+    // Normal intent matching
+    for (let intent of botBrain) {
+        if (intent.keywords.some(kw => text.includes(kw))) {
+            return intent.response;
+        }
+    }
+    return "I'm still learning! Try asking about his <strong>skills</strong>, <strong>projects</strong>, <strong>open-source</strong>, or <strong>resume</strong>.";
+}
 
 function appendMessage(text, sender) {
     if (!chatBody) return;
@@ -386,29 +456,51 @@ function appendMessage(text, sender) {
     chatBody.scrollTop = chatBody.scrollHeight;
 }
 
-function handleChat() {
-    if (!chatInput) return;
-    const text = chatInput.value.trim().toLowerCase();
-    if (!text) return;
-    
-    appendMessage(chatInput.value, 'user');
-    chatInput.value = '';
-    
-    setTimeout(() => {
-        let reply = "I'm still learning! Ask me about Vaibhav's <strong>skills</strong>, <strong>resume</strong>, or <strong>contact</strong>.";
-        
-        if (text.includes('skill')) reply = "Vaibhav excels in Python, Java, JavaScript, AI/ML, and Full-Stack Development!";
-        if (text.includes('contact') || text.includes('email')) reply = "You can email him at vaibhav09122005@gmail.com";
-        if (text.includes('resume') || text.includes('cv')) reply = "You can download his CV from the top navigation bar!";
-        if (text.includes('project')) reply = "Check out the Projects section to see his AI Study Mentor and Virtual Mouse.";
-        
-        appendMessage(reply, 'bot');
-    }, 600);
+// Show animated typing dots
+function showTypingIndicator() {
+    const p = document.createElement('p');
+    p.classList.add('bot-msg', 'typing-indicator');
+    p.id = "typingIndicator";
+    p.innerHTML = "<span></span><span></span><span></span>";
+    chatBody.appendChild(p);
+    chatBody.scrollTop = chatBody.scrollHeight;
 }
 
-if (sendChatBtn) sendChatBtn.addEventListener('click', handleChat);
-if (chatInput) chatInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleChat(); });
+function removeTypingIndicator() {
+    const indicator = document.getElementById('typingIndicator');
+    if (indicator) indicator.remove();
+}
 
+function processUserMessage(text) {
+    if (!text) return;
+    
+    appendMessage(text, 'user');
+    chatInput.value = '';
+    
+    // 1. Show "Typing..." animation
+    showTypingIndicator();
+    
+    // 2. Wait 1.2 seconds, remove typing, and send the real response
+    setTimeout(() => {
+        removeTypingIndicator();
+        const reply = getBotResponse(text);
+        appendMessage(reply, 'bot');
+    }, 1200);
+}
+
+// Event Listeners for Input & Send Button
+if (sendChatBtn) sendChatBtn.addEventListener('click', () => processUserMessage(chatInput.value.trim()));
+if (chatInput) chatInput.addEventListener('keypress', (e) => { 
+    if (e.key === 'Enter') processUserMessage(chatInput.value.trim()); 
+});
+
+// Event Listeners for Quick Reply Chips
+quickBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const text = btn.innerText;
+        processUserMessage(text);
+    });
+});
 
 // ==========================================================================
 // APIS & DATABASE INTEGRATIONS

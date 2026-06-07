@@ -125,23 +125,28 @@
             <div class="about-content fade-in-up">
                 <h2 class="section-title decrypt-text" data-value="About Me"><span>✦</span> About Me</h2>
                 <p>I am a B.Tech Computer Science student passionate about building impactful technology solutions. My primary focus lies in AI, Machine Learning, and Full-Stack Development.</p>
-                
-                <div class="terminal-container hover-target">
-                    <div class="terminal-header">
-                        <span class="dot red"></span>
-                        <span class="dot yellow"></span>
-                        <span class="dot green"></span>
-                        <span class="term-title">guest@vaibhav-sys:~</span>
-                    </div>
-                    <div class="terminal-body" id="terminalOutput">
-                        <p>> System initialized. Type <span class="accent-text">'sudo get-motivation'</span></p>
-                    </div>
-                    <div class="terminal-input-line">
-                        <span>></span>
-                        <input type="text" id="terminalInput" autocomplete="off" spellcheck="false">
-                    </div>
-                </div>
-            </div>
+<div class="terminal-container hover-target">
+    <!-- Header -->
+    <div class="terminal-header">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+        <span class="term-title">guest@vaibhav-sys:~</span>
+    </div>
+
+    <!-- Output Body -->
+    <div class="terminal-body" id="terminalOutput">
+        <!-- JS will inject the welcome message here -->
+    </div>
+
+    <!-- Input Area with Hint -->
+    <div class="terminal-hint">Hint: Try typing <span class="command-text">'help'</span></div>
+    <div class="terminal-input-line">
+        <span>></span>
+        <input type="text" id="terminalInput" placeholder="Type 'help' for commands..." autocomplete="off">
+    </div>
+</div>
+</div>
             
             <div class="skills-content fade-in-up" id="physics-skills">
                 <h2 class="section-title decrypt-text" data-value="Technical Arsenal"><span>🛠️</span> Technical Arsenal</h2>
@@ -156,12 +161,22 @@
                 </div>
                 
                 <div class="skill-category">
-                    <h3>Web & Tools</h3>
+                    <h3>Web & Backend</h3>
                     <div class="tags">
                         <span class="tag physics-tag hover-target ui-interact">HTML5/CSS3</span>
                         <span class="tag physics-tag hover-target ui-interact">React.js</span>
+                        <span class="tag physics-tag hover-target ui-interact">Node.js</span>
+                        <span class="tag physics-tag hover-target ui-interact">Flask</span>
+                        <span class="tag physics-tag hover-target ui-interact">Firebase</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Data & Tools</h3>
+                    <div class="tags">
                         <span class="tag physics-tag hover-target ui-interact">Git & GitHub</span>
                         <span class="tag physics-tag hover-target ui-interact">PowerBI & Excel</span>
+                        <span class="tag physics-tag hover-target ui-interact">OpenCV</span>
                     </div>
                 </div>
                 
@@ -171,6 +186,7 @@
                         <span class="tag physics-tag hover-target ui-interact">Data Structures</span>
                         <span class="tag physics-tag hover-target ui-interact">OOP</span>
                         <span class="tag physics-tag hover-target ui-interact">Machine Learning</span>
+                        <span class="tag physics-tag hover-target ui-interact">Computer Vision</span>
                     </div>
                 </div>
             </div>
@@ -178,28 +194,52 @@
         </div>
     </section>
 
+    
+
     <section class="brain-dump" id="brain-dump">
         <h2 class="section-title fade-in-up decrypt-text" data-value="Recent Thoughts">Recent Thoughts <span>🧠</span></h2>
         
+              
         <div class="blog-scroll-container fade-in-up">
+            
+            <div class="blog-card interactive-card hover-target ui-interact">
+                <span class="date">June 2026</span>
+                <h3>The Truth About Open Source (GSSoC '26)</h3>
+                <p>Earning the GSSoC "Rising Star" badge taught me a valuable lesson: open-source contribution is 10% writing brilliant code, and 90% praying your <code>git push</code> doesn't somehow cause a catastrophic merge conflict on the main branch.</p>
+            </div>
+            
+            <div class="blog-card interactive-card hover-target ui-interact">
+                <span class="date">May 2026</span>
+                <h3>Flask & React: A Blind Date</h3>
+                <p>Building my Mini CRM was a journey. Getting a React frontend to successfully talk to a Python/Flask backend is basically setting up a blind date between two frameworks that don't speak the same language. Thank the tech gods for JSON.</p>
+            </div>
+            
+            <div class="blog-card interactive-card hover-target ui-interact">
+                <span class="date">April 2026</span>
+                <h3>The CSS Paradox</h3>
+                <p>I can successfully write a machine learning script using OpenCV to track human eye movements in real-time, but centering a <code>div</code> vertically on a mobile screen still takes me 45 minutes, three Stack Overflow tabs, and a small sacrifice to the layout gods.</p>
+            </div>
+
             <div class="blog-card interactive-card hover-target ui-interact">
                 <span class="date">March 2026</span>
-                <h3>Why OpenCV over MediaPipe?</h3>
-                <p>For my virtual mouse project, I chose OpenCV for its lower-level pixel manipulation capabilities. While MediaPipe offers great out-of-the-box hand tracking, I wanted to truly understand the core math behind computer vision.</p>
+                <h3>"Prompt Engineer"</h3>
+                <p>Completing my Google Cloud Vertex AI badge made me realize something funny. "Prompt Engineering" is really just a highly prestigious, corporate way of saying you know how to politely gaslight a neural network into giving you the right answer.</p>
             </div>
-            
+
             <div class="blog-card interactive-card hover-target ui-interact">
                 <span class="date">February 2026</span>
-                <h3>The Reality of DSA</h3>
-                <p>Data Structures and Algorithms used to feel like just a hurdle for interviews. Now, seeing how they drastically reduce latency in my models, I realize they are the foundation of scalable software.</p>
+                <h3>Java's Identity Crisis</h3>
+                <p>I’ve been diving deep into Object-Oriented Programming with Java. It's incredibly powerful, but sometimes I feel like I need to instantiate an <code>AbstractSingletonProxyFactoryBean</code> just to ask the program to print "Hello World". Why use 5 words when 50 will do?</p>
             </div>
-            
+
             <div class="blog-card interactive-card hover-target ui-interact">
                 <span class="date">January 2026</span>
-                <h3>Prompt Engineering as Code</h3>
-                <p>Completing the Google Cloud Vertex AI badge taught me that prompting isn't just typing words; it's a programmatic way of constraining neural network outputs.</p>
+                <h3>The Thrill of Serverless</h3>
+                <p>Hooking up Firebase Firestore to my portfolio for live syncing is amazing! The data updates instantly without a page refresh. The downside? If I push a buggy update to production, the whole internet gets to watch my app break <em>live</em>. No pressure at all.</p>
             </div>
+
         </div>
+
     </section>
 
     <section class="projects" id="projects">
@@ -337,6 +377,17 @@
                 <div class="cert-img-wrapper"><img src="images/InternshipCertificate (1).png" alt="Internship Certificate"></div>
                 <div class="cert-info"><h3>Tare Zameen Foundation</h3><p>Internship Certificate</p></div>
             </div>
+
+            <div class="cert-card fade-in-up interactive-card tilt-card hover-target ui-interact">
+                <div class="cert-img-wrapper"><img src="images\gssoc-badge-rising_star.png" alt="GSSoC 2026 Rising Star"></div>
+                <div class="cert-info"><h3>GSSoC '26 Rising Star</h3><p>GirlScript Summer of Code (1,000+ Pts)</p></div>
+            </div>
+
+            <div class="cert-card fade-in-up interactive-card tilt-card hover-target ui-interact">
+                <div class="cert-img-wrapper"><img src="images\gssoc-badge-role_ambassador.png" alt="GSSoC 2026 Rising Star"></div>
+                <div class="cert-info"><h3>GSSoC '26 Ambassador</h3><p>GirlScript Summer of Code (1,000+ Pts)</p></div>
+            </div>
+
         </div>
     </section>
 
@@ -350,6 +401,12 @@
         <h2 class="section-title fade-in-up"><span>🏆</span> My Learning Journey</h2>
         <div class="timeline fade-in-up">
             
+            <div class="timeline-item interactive-card tilt-card hover-target ui-interact">
+                <div class="timeline-dot"></div>
+                <h4>GSSoC '26 Rising Star & Ambassador</h4>
+                <p>Contributed extensively to open-source during GirlScript Summer of Code 2026. Earned 8 milestones, achieving Ambassador status and the "Rising Star" badge for scoring 1,000+ contribution points.</p>
+            </div>
+
             <div class="timeline-item interactive-card tilt-card hover-target ui-interact">
                 <div class="timeline-dot"></div>
                 <h4>Earning Credentials & Specializations</h4>
@@ -437,6 +494,14 @@
             <div class="chat-body" id="chatBody">
                 <p class="bot-msg">Hi! I'm Vaibot. Ask me about Vaibhav's <strong>skills</strong>, <strong>resume</strong>, or <strong>contact</strong> info!</p>
             </div>
+            
+            <!-- NEW: Quick Reply Suggestions -->
+            <div class="quick-replies" id="quickReplies">
+                <span class="quick-btn">Tech Stack?</span>
+                <span class="quick-btn">Projects?</span>
+                <span class="quick-btn">GSSoC '26?</span>
+            </div>
+
             <div class="chat-input">
                 <input type="text" id="chatInput" placeholder="Type a message..." autocomplete="off">
                 <button id="sendChat" class="hover-target ui-interact">➤</button>
