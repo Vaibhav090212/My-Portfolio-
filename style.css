@@ -1453,3 +1453,33 @@ section {
     40% { transform: scale(1); opacity: 1; }
 }
 
+/* Update the badge CSS */
+.telemetry-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 0.7rem;
+    color: #ccc; /* Slightly dimmed to show it's static text */
+    border: 1px solid #333;
+    margin: 10px 0;
+    cursor: default; /* Forces the cursor to remain standard */
+}
+
+/* Remove the hover effect */
+.telemetry-badge:hover {
+    background: rgba(0, 0, 0, 0.3);
+    border-color: #333;
+}
+
+/* Keep your status-dot and pulse animation exactly as they were */
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: #27c93f;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #27c93f;
+    animation: pulse-green 1.5s infinite;
+}
