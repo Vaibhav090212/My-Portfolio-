@@ -379,7 +379,10 @@ if (terminalInput) {
                     terminalOutput.innerHTML += `<p style="color: #e74c3c;">> ERROR: Firewalls detected. System lockdown initiated.</p>`;
                     terminalOutput.scrollTop = terminalOutput.scrollHeight;
                 }, 1000);
-                response = "> Access Denied. Nice try, though!";
+                response = "> Access Denied. Nice try, though!";   
+            }
+            else if (command === 'sudo deploy-check') {
+             response = "> Checking deployment status: open-graph-visualizer.vercel.app... STATUS: READY [GREEN]";
             }
             else if (command !== '') {
                 response = `> Command not found: ${command}`;
